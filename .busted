@@ -1,0 +1,5 @@
+return {
+  default = {
+    pattern = "_spec.moon$"
+  }
+}
