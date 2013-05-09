@@ -15,15 +15,13 @@ task 'test', 'Run unit tests with busted.', !->
   charm.write (exec 'busted', silent: true).output
 
 task 'watch', 'Watch, compile and test files.', !->
-  action = !->
+  do action = !->
     charm.reset!
     invoke \test
 
-  action!
-
   <-! gaze ['./*.moon','./spec/*_spec.moon']
 
-  # error handling
+  # throw errors
   throw it if it?
 
   @on \all , action
