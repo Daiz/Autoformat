@@ -1,0 +1,29 @@
+{
+  "name": "Autoformat",
+  "version": "0.0.1",
+  "author": "Daiz <taneli.vatanen@gmail.com>",
+  "license": "MIT",
+  "description": "Automatic microtypography for Aegisub",
+  "dependencies": {
+    "gaze": "~0.3.4",
+    "charm": "~0.1.2",
+    "LiveScript": "~1.1.1",
+    "shelljs": "~0.1.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "slake watch",
+    "test": "slake test",
+    "build": "slake build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Daiz-/Autoformat.git"
+  },
+  "keywords": [
+    "automation",
+    "aegisub",
+    "typography",
+    "subtitles"
+  ]
+}
