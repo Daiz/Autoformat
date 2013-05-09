@@ -1,5 +1,7 @@
 return {
   default = {
-    pattern = "_spec.moon$"
+    pattern = "_spec.moon$",
+    output = "plain_terminal",
+    lpath = "./lib/?.lua"
   }
 }
