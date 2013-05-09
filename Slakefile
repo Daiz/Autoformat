@@ -1,30 +1,26 @@
 require 'shelljs/global'
-require! {
-  'gaze'
-  'charm'
-}
+require! <[ gaze charm ]>
 
-charm = charm!
-charm.pipe process.stdout
+charm = charm process.stdout
 
-task 'build', 'Compile *.moon files to lib/*.lua', !->
-  charm.write (exec 'moonc -t lib *.moon', silent: true).output
+task \build 'Compile *.moon files to lib/*.lua' !->
+  exec 'moonc -t lib *.moon'
 
-task 'test', 'Run unit tests with busted.', !->
+task \test 'Run unit tests with busted.' !->
   invoke \build
-  charm.write (exec 'busted', silent: true).output
+  exec   \busted
 
-task 'watch', 'Watch, compile and test files.', !->
+task \watch 'Watch, compile and test files.' !->
   do action = !->
     charm.reset!
     invoke \test
 
-  <-! gaze ['./*.moon','./spec/*_spec.moon']
+  <-! gaze '**/*.moon'
 
   # throw errors
   throw it if it?
 
-  @on \all , action
+  @on \all action
 
 
 
